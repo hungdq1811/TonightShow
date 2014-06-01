@@ -8,18 +8,14 @@ Server = require('mongodb').Server;
 
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
 
-mongo.Db.connect(mongoUri, function(error, db){
-	db.collection('mydocs', function(err, collection){
-		collection.insert({"key":"value"}, {safe: true}, function(err, rs){
-			//none
-		});
-	});
-});
-
 app.use(logfmt.requestLogger());
 
 app.get('/', function(req, res) {
   res.send('Hello World! 1');
+});
+
+app.get('/blah', function(req, res){
+	res.send('Blah World!');
 });
 
 var port = Number(process.env.PORT || 5000);
