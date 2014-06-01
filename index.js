@@ -1,7 +1,7 @@
 var express = require("express");
 var logfmt = require("logfmt");
 var app = express();
-var mongo = requires('mongodb');
+var mongo = require('mongodb');
 
 MongoClient = require('mongodb').MongoClient;
 Server = require('mongodb').Server;
