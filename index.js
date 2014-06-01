@@ -8,6 +8,14 @@ Server = require('mongodb').Server;
 
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
 
+MongoClient.connect(mongoUri, function(error, db){
+	if (error){
+		console.log("Error: unable to connect to database");
+		return;
+	}
+	console.log("Connected to database");
+});
+
 app.use(logfmt.requestLogger());
 
 app.get('/', function(req, res) {
