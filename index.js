@@ -2,7 +2,6 @@ var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
 var logfmt = require('logfmt');
-var json = require('json');
 var path = require('path');
 
 var mongo = require('mongodb');
@@ -25,7 +24,6 @@ mongo.Db.connect(mongoUri, function(error, db){
 });
 
 app.use(bodyParser());
-//app.use(json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
