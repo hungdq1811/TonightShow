@@ -10,8 +10,9 @@ var io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
 
 io.sockets.on('connection', function(socket){
-	socket.emit('user_register', {message: 'welcome'});
-	socket.on('send', function(data){
-		io.sockets.emit('message', data);
+// 	socket.emit('user_register', {message: 'welcome'});
+	socket.on('user_register', function(data){
+	console.log(data);
+		io.sockets.emit('user_register', {message: 'user_register'});
 	});
 });
